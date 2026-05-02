@@ -193,6 +193,10 @@ body {
 		padding: 0 16px;
 	}
 
+	.header {
+		z-index: 1001;
+	}
+
 	.logo-img {
 		height: 48px;
 		max-width: 220px;
@@ -212,10 +216,10 @@ body {
 	/* MOBILE NAVIGATION DRAWER (RIGHT SIDE) */
 	.nav {
 		position: fixed;
-		top: 0;
+		top: 60px;
 		right: 0;
 		width: min(85vw, 320px);
-		height: 100vh;
+		height: calc(100vh - 60px);
 		background: #ffffff;
 		flex-direction: column;
 		gap: 0;

@@ -25,7 +25,7 @@ body {
 
 .header-container {
 	max-width: 1400px;
-	height: 44px;
+	height: 72px;
 	margin: 0 auto;
 	padding: 0 18px;
 	display: flex;
@@ -44,8 +44,9 @@ body {
 
 
 .logo-img {
-	width: 200px;
-	height: 200px;
+	height: 32px;
+	width: auto;
+	max-width: 160px;
 	display: block;
 	object-fit: contain;
 }
@@ -107,6 +108,31 @@ body {
 	display: none;
 }
 
+.mobile-menu {
+	display: grid;
+	gap: 10px;
+	padding: 18px 20px 24px;
+	background: rgba(17, 17, 17, 0.96);
+	color: #fff;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.mobile-link {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px 6px;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.mobile-link:hover,
+.mobile-link:focus-visible {
+	background: rgba(255, 255, 255, 0.1);
+}
+
 .hero {
 	max-width: 980px;
 	margin: 0 auto;
@@ -159,6 +185,12 @@ body {
 		justify-content: space-between;
 	}
 
+	.logo-img {
+		height: 28px;
+		width: auto;
+		max-width: 140px;
+	}
+
 	.hero {
 		padding-top: 56px;
 	}
@@ -166,21 +198,22 @@ body {
 
 @media (max-width: 480px) {
 	.header-container {
-		height: 40px;
+		height: 64px;
 	}
 
 	.logo-img {
-		width: 250px;
-		height: 250px;
+		height: 24px;
+		width: auto;
+		max-width: 130px;
 	}
 
 	.icon-btn {
-		width: 26px;
-		height: 26px;
+		width: 28px;
+		height: 28px;
 	}
 
 	.icon-btn svg {
-		width: 15px;
-		height: 15px;
+		width: 16px;
+		height: 16px;
 	}
 }

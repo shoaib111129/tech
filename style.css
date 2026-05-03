@@ -123,6 +123,7 @@ body {
 	transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 	white-space: nowrap;
 	box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+	margin-left: auto;
 }
 
 .cta-btn:hover {

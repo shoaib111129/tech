@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Background -->
-  <rect width="200" height="200" fill="#1e3a8a"/>
-  
-  <!-- Z Letter -->
-  <path d="M 50 50 L 150 50 L 60 150 L 150 150" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

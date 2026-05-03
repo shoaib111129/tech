@@ -206,8 +206,8 @@ body {
    ============================================ */
 @media (max-width: 768px) {
 	.header-container {
-		height: 60px;
-		padding: 0 16px;
+		height: 64px;
+		padding: 0 12px;
 	}
 
 	.header {
@@ -231,21 +231,21 @@ body {
 	}
 
 	.header-controls {
-		gap: 16px;
+		gap: 24px;
 	}
 
 	.search-btn,
 	.menu-btn {
-		padding: 6px;
+		padding: 8px;
 	}
 
 	/* MOBILE NAVIGATION DRAWER (RIGHT SIDE) */
 		.nav {
 		position: fixed;
-		top: 60px;
+		top: 64px;
 		right: 0;
 		width: min(85vw, 320px);
-		height: calc(100vh - 60px);
+		height: calc(100vh - 64px);
 		background: #ffffff;
 		flex-direction: column;
 		gap: 0;

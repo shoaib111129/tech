@@ -41,6 +41,13 @@ body {
 	height: 70px;
 }
 
+.header-controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-left: auto;
+}
+
 /* LOGO STYLING */
 .logo {
 	display: inline-flex;
@@ -138,10 +145,12 @@ body {
 }
 
 /* HAMBURGER MENU (MOBILE ONLY) */
+.search-btn,
 .menu-btn {
-	display: none;
-	flex-direction: column;
-	gap: 5px;
+	/* search should be visible on desktop; menu hidden by default (desktop) */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -149,24 +158,31 @@ body {
 	z-index: 999;
 }
 
-.menu-btn span {
-	width: 24px;
-	height: 3px;
-	background: #1f2a37;
-	border-radius: 2px;
-	transition: all 0.3s ease;
+/* Hide hamburger/menu button on desktop by default; shown in mobile media query */
+.menu-btn {
+	display: none;
 }
 
-.menu-btn.active span:nth-child(1) {
-	transform: rotate(45deg) translate(10px, 10px);
+.icon {
+	display: block;
+	width: 20px;
+	height: 20px;
 }
 
-.menu-btn.active span:nth-child(2) {
-	opacity: 0;
+.menu-btn .icon-close {
+	display: none;
 }
 
-.menu-btn.active span:nth-child(3) {
-	transform: rotate(-45deg) translate(7px, -7px);
+.menu-btn.active .icon-hamburger {
+	display: none;
+}
+
+.menu-btn.active .icon-close {
+	display: block;
+}
+
+.search-btn .icon-search {
+	display: block;
 }
 
 /* OVERLAY FOR MOBILE */
@@ -210,12 +226,16 @@ body {
 
 	/* SHOW HAMBURGER MENU ON MOBILE */
 	.menu-btn {
-		display: flex;
+		display: inline-flex;
 		order: 2;
 	}
 
+	.header-controls {
+		gap: 8px;
+	}
+
 	/* MOBILE NAVIGATION DRAWER (RIGHT SIDE) */
-	.nav {
+		.nav {
 		position: fixed;
 		top: 60px;
 		right: 0;

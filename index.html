@@ -17,7 +17,7 @@
         <div class="header-container">
             <!-- LOGO -->
             <a href="#home" class="logo">
-                <img src="logo.png" alt="Zyron Infotech" class="logo-img">
+                <img src="logo.gif" alt="Zyron Infotech" class="logo-img" id="siteLogo">
             </a>
 
             <!-- HAMBURGER MENU BUTTON (MOBILE ONLY) -->
@@ -86,6 +86,24 @@
                 closeMenu();
             }
         });
+
+        // Logo: use GIF only; clicking the logo restarts the GIF (replays animation)
+        (function() {
+            const logo = document.getElementById('siteLogo');
+            if (!logo) return;
+            const gifSrc = 'logo.gif';
+
+            // Ensure GIF is used
+            logo.src = gifSrc;
+
+            // Restart GIF on click by briefly clearing src and restoring it
+            logo.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Quick reset to force replay
+                logo.src = '';
+                setTimeout(() => { logo.src = gifSrc; }, 20);
+            });
+        })();
 
     </script>
 </body>

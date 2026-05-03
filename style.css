@@ -231,7 +231,12 @@ body {
 	}
 
 	.header-controls {
-		gap: 8px;
+		gap: 16px;
+	}
+
+	.search-btn,
+	.menu-btn {
+		padding: 6px;
 	}
 
 	/* MOBILE NAVIGATION DRAWER (RIGHT SIDE) */

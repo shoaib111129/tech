@@ -17,7 +17,7 @@
         <div class="header-container">
             <!-- LOGO -->
             <a href="#home" class="logo">
-                <img src="logo.gif" alt="Zyron Infotech" class="logo-img" id="siteLogo">
+                <img src="logo.png" alt="Zyron Infotech" class="logo-img" id="siteLogo">
             </a>
 
             <!-- NAVIGATION -->
@@ -79,8 +79,9 @@
             navMenu.classList.remove('active');
             menuBtn.classList.remove('active');
             overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
-        }t
+        }
 
         menuBtn.addEventListener('click', () => {
             // On small screens toggle the slide-out drawer
@@ -88,6 +89,7 @@
                 navMenu.classList.toggle('active');
                 menuBtn.classList.toggle('active');
                 overlay.classList.toggle('active');
+                document.body.classList.toggle('menu-open', navMenu.classList.contains('active'));
                 document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
             } else {
                 // On desktop just toggle icon state (visual feedback)
@@ -109,21 +111,18 @@
             }
         });
 
-        // Logo: use GIF only; clicking the logo restarts the GIF (replays animation)
+        // Logo uses the PNG file now
         (function() {
             const logo = document.getElementById('siteLogo');
             if (!logo) return;
-            const gifSrc = 'logo.gif';
+            const logoSrc = 'logo.png';
 
-            // Ensure GIF is used
-            logo.src = gifSrc;
+            // Ensure the PNG logo is used
+            logo.src = logoSrc;
 
-            // Restart GIF on click by briefly clearing src and restoring it
+            // Keep the logo static on click
             logo.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Quick reset to force replay
-                logo.src = '';
-                setTimeout(() => { logo.src = gifSrc; }, 20);
             });
         })();
 

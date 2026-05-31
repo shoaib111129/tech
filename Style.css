@@ -44,9 +44,9 @@ body {
 
 
 .logo-img {
-	height: 32px;
+	height: 200px;
 	width: auto;
-	max-width: 160px;
+	max-width: 200px;
 	display: block;
 	object-fit: contain;
 }
@@ -64,7 +64,7 @@ body {
 .nav-link {
 	color: #1d1d1f;
 	text-decoration: none;
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 1;
 	opacity: 0.88;
 	transition: opacity 0.2s ease, color 0.2s ease;
@@ -75,7 +75,7 @@ body {
 .icon-btn:hover,
 .icon-btn:focus-visible {
 	opacity: 1;
-	color: #000;
+	color: #06cdff;
 }
 
 .header-actions {
@@ -86,8 +86,8 @@ body {
 }
 
 .icon-btn {
-	width: 28px;
-	height: 28px;
+	width: 32px;
+	height: 32px;
 	border: 0;
 	background: transparent;
 	color: #1d1d1f;
@@ -167,7 +167,7 @@ body {
 	}
 
 	.nav-link {
-		font-size: 11px;
+		font-size: 13px;
 	}
 }
 
@@ -186,9 +186,9 @@ body {
 	}
 
 	.logo-img {
-		height: 28px;
+		height: 36px;
 		width: auto;
-		max-width: 140px;
+		max-width: 180px;
 	}
 
 	.hero {
@@ -198,13 +198,13 @@ body {
 
 @media (max-width: 480px) {
 	.header-container {
-		height: 64px;
+		height: 72px;
 	}
 
 	.logo-img {
-		height: 24px;
+		height: 34px;
 		width: auto;
-		max-width: 130px;
+		max-width: 160px;
 	}
 
 	.icon-btn {

@@ -1,31 +1,23 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --bg: #f4f7fb;
-    --text: #111827;
-    --brand: #0a84ff;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background:
-        radial-gradient(circle at top, rgba(10, 132, 255, 0.09), transparent 28%),
-        linear-gradient(180deg, #fbfcfe 0%, var(--bg) 100%);
-    color: var(--text);
-}
-
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button,
+input,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Use Apple-like/system UI font stack for a clean, native look */
+:root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .header {
@@ -416,6 +408,168 @@ a {
 
 .country-menu::-webkit-scrollbar {
     width: 8px;
+}
+
+/* Hero */
+.site-main {
+    max-width: 1200px;
+    margin: 36px auto;
+    padding: 0 20px 60px;
+}
+
+.hero {
+    background: linear-gradient(180deg, rgba(250,250,252,1) 0%, rgba(255,255,255,0.96) 100%);
+    border-radius: 16px;
+    padding: 44px;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.06);
+    overflow: hidden;
+}
+
+.hero-inner {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-copy h1 {
+    font-size: 36px;
+    margin: 0 0 12px;
+    color: #0f172a;
+    line-height: 1.02;
+}
+
+.hero-copy p {
+    color: #475569;
+    margin: 0 0 18px;
+}
+
+.hero-ctas .btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg,#0a84ff,#6ec6ff);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #0f172a;
+    border: 1px solid rgba(15,23,42,0.06);
+}
+
+.hero-media .device-mock {
+    width: 320px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(15,23,42,0.12);
+    background: linear-gradient(135deg,#eef2ff,#ffffff);
+}
+
+/* Product carousel */
+.product-section {
+    margin-top: 28px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin: 0 0 14px;
+    color: #0f172a;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    flex: 1;
+}
+
+.product-track {
+    display: flex;
+    gap: 18px;
+    transition: transform 520ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform;
+}
+
+.product-card {
+    background: #fff;
+    min-width: 260px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    overflow: hidden;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.product-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    display: block;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-body {
+    padding: 14px 16px 18px;
+}
+
+.product-body h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+    opacity: 0;
+    transform: translateY(18px) scale(0.995);
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease;
+
+.muted { color: #64748b; font-size: 13px; margin: 0 }
+
+.carousel-nav {
+    background: rgba(255,255,255,0.95);
+
+.product-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+    border: 1px solid rgba(15,23,42,0.06);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 12px;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .hero-inner { flex-direction: column; text-align: left }
+    .hero-media .device-mock { width: 260px; height:160px }
+    .product-card { min-width: 220px }
+}
+
+@media (max-width: 520px) {
+    .hero-copy h1 { font-size: 24px }
+    .product-card { min-width: 200px }
 }
 
 .country-menu::-webkit-scrollbar-thumb {

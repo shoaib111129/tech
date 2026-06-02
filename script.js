@@ -43,6 +43,95 @@ if (backToTop) {
   });
 }
 
+/* Product carousel logic: autoplay, nav, and basic drag */
+(() => {
+  const track = document.querySelector('.product-track');
+  const prevBtn = document.querySelector('.carousel-nav.prev');
+  const nextBtn = document.querySelector('.carousel-nav.next');
+  if (!track) return;
+
+  const cards = Array.from(track.children);
+  let index = 0;
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let rafId = null;
+  const autoplayDelay = 3600;
+  let autoplayTimer = null;
+
+  function update() {
+    const cardWidth = cards[0].getBoundingClientRect().width + 18; // gap
+    currentTranslate = -index * cardWidth;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  function next() { index = (index + 1) % cards.length; update(); }
+  function prev() { index = (index - 1 + cards.length) % cards.length; update(); }
+
+  nextBtn && nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+  prevBtn && prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(next, autoplayDelay);
+  }
+
+  // Basic pointer drag
+  track.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    track.style.transition = 'none';
+    track.setPointerCapture(e.pointerId);
+  });
+
+  track.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    track.style.transform = `translateX(${currentTranslate + dx}px)`;
+  });
+
+  track.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const dx = e.clientX - startX;
+    const threshold = (cards[0].getBoundingClientRect().width || 220) / 3;
+    if (dx < -threshold) next();
+    else if (dx > threshold) prev();
+    track.style.transition = '';
+    update();
+    resetAutoplay();
+  });
+
+  track.addEventListener('pointercancel', () => { isDragging = false; update(); resetAutoplay(); });
+
+  // Pause autoplay on hover/focus
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+    carousel.addEventListener('mouseleave', resetAutoplay);
+  }
+
+  // init
+  window.addEventListener('load', () => { update(); resetAutoplay(); });
+  window.addEventListener('resize', update);
+})();
+
+/* Reveal product cards when they enter the viewport */
+(function() {
+  const cards = document.querySelectorAll('.product-card');
+  if (!cards.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => obs.observe(card));
+})();
+
 // Social icon tap animation
 document.querySelectorAll('.socials .social').forEach((socialLink) => {
   socialLink.addEventListener('click', () => {

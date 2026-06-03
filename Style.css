@@ -54,11 +54,11 @@ body {
 }
 
 .nav {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 22px;
     flex-wrap: nowrap;
 }
 
@@ -160,7 +160,7 @@ body {
     }
 
     .header-actions {
-        gap: 8px;
+        gap: 22px;
     }
 
     .icon-btn {
@@ -515,7 +515,7 @@ body {
     object-fit: contain;
     display: block;
     border-radius: 22px;
-    background: #fff;
+    background: #ff0606;
     transition: transform 280ms ease, filter 280ms ease;
     animation: device-breathe 4.5s ease-in-out infinite;
 }
@@ -831,12 +831,12 @@ body {
 
 .social.social-linkedin {
     background: rgba(255,255,255,0.56);
-    border: 1px solid rgba(15,23,42,0.10);
+    border: 1px solid rgba(12, 81, 241, 0.1);
     color: #0f1724;
 }
 
 .social.social-linkedin svg {
-    color: #0f1724;
+    color: #045cea;
     fill: currentColor;
 }
 
@@ -851,7 +851,7 @@ body {
 }
 
 .footer-right p {
-    color: #5b6b88;
+    color: #314a7a;
 }
 
 .back-to-top {
